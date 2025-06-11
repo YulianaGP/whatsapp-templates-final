@@ -1,4 +1,3 @@
-// app.js
 // Event Listeners para botones de acción
 function agregarEventListeners() {
     // Botones de copiar
