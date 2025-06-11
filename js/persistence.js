@@ -337,6 +337,11 @@ function mostrarEstadoGuardado(exito = true, operacion = 'guardado') {
     setTimeout(() => {
         statusIndicator.style.opacity = '1';
     }, 5000);
+
+    // Desaparece el mensaje después de unos segundos
+    setTimeout(() => {
+        statusIndicator.innerHTML = '';
+    }, 3000);
 }
 
 // Crear indicador de estado si no existe
@@ -536,5 +541,3 @@ function ocultarBotonRecuperacion() {
         timerRecuperacion = null;
     }
 }
-
-
