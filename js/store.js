@@ -1,18 +1,28 @@
-// store.js
-// LAB 14 (HU1): Store centralizado para manejar el estado de la aplicación 
+// ================================================================
+// LAB 14: APP STATE MANAGEMENT - Sistema de Estado Centralizado 
+// ================================================================
+// HU1: Como desarrollador, quiero un store centralizado para manejar
+// el estado de la aplicación de forma consistente
+
+/*
+    * Crea un store centralizado para manejar el estado de la aplicación
+    siguiendo el patrón Observer para notificar cambios automáticamente
+    @param {Object} initialState - Estado inicial del store
+    @returns {Object} - Objeto con métodos para interactuar con el store
+*/
 function createStore(initialState = {}) {
-    // Vamos a crear el esatdo principal de mi Store
+    // Estado principal del Store - LAB 14 (HU1)
     let state = {
-        plantillas: [],
-        modoVista: 'lista',
-        filtros: {
-            busqueda: '',
-            hashtag: ''
+        plantillas: [],             // Array de plantillas guardadas
+        modoVista: 'lista',         // 'lista' o 'grilla' - modo de visualización
+        filtros: {                  // Filtros activos para búsqueda
+            busqueda: '',           // Texto de búsqueda
+            hashtag: ''             // Hashtag seleccionado
         },
-        ...initialState
+        ...initialState             // Merge con estado inicial personalizado
     };
     
-    // Observers - funciones que se ejecutan cuando cambia el estado
+    // Sistema Observer - funciones que se ejecutan cuando cambia el estado
     const listeners = [];
 
     // Vamos a usar un metodo para mostrar el valor del state
